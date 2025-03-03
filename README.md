@@ -80,4 +80,3 @@ This project is built with [Vuetify](https://vuetifyjs.com/en/), a UI Library wi
 Copyright (c) 2016-present Vuetify, LLC
 =======
 # GoHOST_project
- c72c942c3e5321094e0da4974f39b79680ee79b9
