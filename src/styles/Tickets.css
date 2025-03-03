@@ -1,0 +1,156 @@
+.table-container{
+  margin-top: 0px;
+}
+.mt-60{
+  margin-top: 60px;
+}
+.custom-table {
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+}
+.card-title {
+  display: flex;
+  justify-content: space-between; /* Распределение элементов по краям */
+  align-items: center; /* Выравнивание по центру */
+  padding: 12px 16px; /* Отступы */
+  gap: 20px;
+}
+
+.btn-action {
+  height: 40px !important;
+  min-height: 40px !important;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.card-title{
+  display: flex ;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.modal-header {
+  display: flex !important; 
+  align-items: center; 
+  width: 100%; 
+  padding: 16px 24px !important;
+  border-bottom: 1px solid #e0e0e0; 
+}
+
+.modal-title {
+  flex: 1; 
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-close {
+  margin-left: auto; 
+  cursor: pointer;
+}
+
+.close-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.close-btn:hover {
+  background-color: rgba(255, 0, 0, 0.02); 
+}
+
+.modal-text{
+  border-bottom: 1px solid #e0e0e0; 
+}
+.mb-20{
+  margin-bottom: 20px;
+}
+.mr-2{
+  color: rgba(144, 164, 174);
+  padding-right: 4px;
+}
+.ml-2{
+  min-height: 40px !important;
+  color: rgb(102, 119, 189) !important;
+}
+
+.font-weight-bold{
+  font-size: 1.23rem;
+}
+
+.search-input {
+  min-width: 250px;
+  max-width: 500px;
+  min-height: 40px !important;
+  margin-top: 0 !important;
+  height: 100%;
+  box-shadow: none !important;  
+  border: none !important;
+  align-items: center !;
+}
+
+.search-input .v-field--variant-solo, .v-field--variant-solo-filled{
+  box-shadow: none !important;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+.field-label{
+  font-size: .875rem !important;
+  font-weight: 500;
+  line-height: 1.6;
+  font-family: Roboto, sans-serif;
+}
+.v-input{
+  margin-top: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end; 
+  gap: 8px; 
+  padding: 16px;
+}
+.btn-cancel {
+  color: rgb(102, 102, 102) !important;
+  padding: 8px 16px;
+  min-width: 92px !important;
+  font-size: .875rem !important;
+  letter-spacing: .0071428571em !important;
+  text-transform: none !important; 
+  box-shadow: none !important;  
+}
+.btn-cancel:hover {
+  background-color: #f1f1f1;
+}
+
+.btn-confirm {
+  color: rgb(102, 119, 189) !important;
+  min-width: 92px !important; 
+  font-size: .875rem !important;
+  letter-spacing: .0071428571em !important;
+  text-transform: none !important; 
+  box-shadow: none !important;
+}
+
+.btn-confirm:hover {
+  background-color: #1565c0; 
+  box-shadow: none !important;
+}
+
+.m-edit .v-btn--variant-elevated, .v-btn, .v-btn--elevated, .mdi-pencil{
+  background: none !important; /* Убираем фон */
+  box-shadow: none !important; /* Убираем тень */
+  color: #1565c0 !important;
+}

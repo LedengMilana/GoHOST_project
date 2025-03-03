@@ -1,0 +1,121 @@
+.ticket-card {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 16px;
+}
+
+.v-card-actions{
+    padding: 0px 16px 16px !important;
+}
+
+.v-card-title {
+    font-weight: bold;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.v-chip {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.v-btn {
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.btn-reply, .btn-confirm{
+    border-radius: 8px !important;
+    background-color: #1565c0 !important;
+    color: white !important;
+    
+}
+
+.actions .v-btn {
+    margin-right: 8px;
+}
+
+.v-card {
+    margin-bottom: 20px;
+}
+
+
+
+.reply-form {
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    font-size: 16px;
+}
+
+.reply-list{
+    max-width: 1515.680px;
+    width: 100%;
+}
+
+.v-card-actions .v-btn {
+    margin-top: 10px;
+}
+
+.v-col {
+    margin-top: 20px;
+}
+
+.v-btn.icon {
+    margin-left: 8px;
+}
+
+.v-icon {
+    font-size: 24px;
+}
+
+.v-list-item-subtitle {
+    margin: 8px 0px;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    display: block !important;
+    font-size: 16px;
+    line-height: 1.7;
+    color: black !important;
+}
+
+.message-date {
+    font-size: 14px;
+    color: gray;
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.message-avatar {
+    background-color: #ddd;
+    width: 40px;
+    height: 40px;
+}
+
+.message-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-role {
+    font-size: 12px;
+    color: gray;
+}
+
+.message-text {
+    margin-top: 4px;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.p-l-0 {
+    padding-left: 0;
+}

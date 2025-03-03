@@ -1,0 +1,72 @@
+{
+  "table": {
+    "title": "Tickets",
+    "id": "#",
+    "status": "Status",
+    "updated": "Latest Update",
+    "subject": "Subject",
+    "department": "Department",
+    "actions": "Edit",
+    "priority": "Priority",
+    "sent": "Sent",
+    "maturitydate": "Maturity date",
+    "invoicedate": "Invoice date",
+    "payment": "Payment"
+  },
+  "buttons": {
+    "openTicket": "Open Ticket",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "reply": "Reply",
+    "close": "Close ticket"
+  },
+  "modal": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "topic": "Topic",
+    "department": "Department",
+    "service": "Relevant Service",
+    "priority": "Priority",
+    "message": "Message",
+    "attachment": "Attachments",
+    "file": "Attach files",
+    "att_file": "Attached files",
+    "lang":"Language"
+  },
+  "errors": {
+    "loadTickets": "Error loading tickets"
+  },
+  "departments": {
+    "support": "Technical Support",
+    "sales": "Sales Department",
+    "management": "Management"
+  },
+  "services": {
+    "none": "None",
+    "api_support": "API Support",
+    "integration": "Integration",
+    "billing": "Billing"
+  },
+  "priorities": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "modal-answer": {
+    "title": "To answer"
+  },
+  "ticket": {
+    "name": "Tickets",
+    "answers": "Answers",
+    "client": "Client"
+  },
+  "billing": {
+    "name": "Billing",
+    "order": "Order",
+    "hosting": "Hosting",
+    "domens": "Domens",
+    "vps": "VPS",
+    "ssl": "SSL"
+  }
+}

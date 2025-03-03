@@ -1,0 +1,72 @@
+{
+  "table": {
+    "title": "Тикеты",
+    "id": "#",
+    "status": "Статус",
+    "updated": "Последнее обновление",
+    "subject": "Предмет",
+    "department": "Департамент",
+    "actions": "Действие",
+    "priority": "Приоритет",
+    "sent": "Отправленный",
+    "maturitydate": " Срок погашения",
+    "invoicedate": "Дата выставления счета",
+    "payment": "К оплате"
+  },
+  "buttons": {
+    "openTicket": "Открыть тикет",
+    "cancel": "Отмена",
+    "submit": "Отправить",
+    "reply": "Ответить",
+    "close": "Закрыть тикет"
+  },
+  "modal": {
+    "title": "Связаться с нами",
+    "name": "Имя",
+    "email": "Email",
+    "topic": "Тема",
+    "department": "Отдел",
+    "service": "Соответствующая услуга",
+    "priority": "Срочность",
+    "message": "Сообщение",
+    "attachment": "Вложения",
+    "file": "Прикрепить файлы",
+    "att_file": "Прикрепленые файлы",
+    "lang": "Язык"
+  },
+  "errors": {
+    "loadTickets": "Ошибка при загрузке тикетов"
+  },
+  "departments": {
+    "support": "Техническая поддержка",
+    "sales": "Отдел продаж",
+    "management": "Руководство"
+  },
+  "services": {
+    "none": "Нет",
+    "api_support": "Поддержка API",
+    "integration": "Интеграция",
+    "billing": "Биллинг"
+  },
+  "priorities": {
+    "low": "Низкая",
+    "medium": "Средняя",
+    "high": "Высокая"
+  },
+  "modal-answer": {
+    "title": "Ответить"
+  },
+  "ticket": {
+    "name": "Тикеты",
+    "answers": "Ответы",
+    "client": "Клиент"
+  },
+   "billing": {
+    "name": "Биллинг",
+    "order": "Заказать",
+    "hosting": "Хостинг",
+    "domens": "Домены",
+    "vps": "VPS",
+    "ssl": "SSL"
+  }
+}
