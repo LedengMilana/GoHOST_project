@@ -1,9 +1,9 @@
 <template>
   <v-container class="table-container">
     <div class="breadcrumbs">
-      <router-link class="breadcrumb" to="/">Главная</router-link>
+      <router-link class="breadcrumb" to="/">{{ $t("breadcrumb.homep") }}</router-link>
       <span class="separator">/</span>
-      <span class="breadcrumb active">Тикеты</span>
+      <span class="breadcrumb active">{{ $t("breadcrumb.ticket") }}</span>
     </div>
     <v-card class="custom-table">
       <v-card-title class="d-flex justify-space-between pa-4">

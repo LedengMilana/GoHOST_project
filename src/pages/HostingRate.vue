@@ -35,12 +35,12 @@
                     <v-card-title class="d-flex justify-center align-center">{{ plan.name }}</v-card-title>
 
                     <v-card-title class="price">
-                        <span class="display-1">{{ plan.price }} руб.</span> / в месяц
+                        <span class="display-1">{{ plan.price }} {{ $t("plans.currency") }}</span> / {{ $t("plans.perMonth") }}
                     </v-card-title>
 
                     <v-card-subtitle class="text-center">
-                        <p class="caption">Ежегодно - {{ plan.annualPrice }} руб.</p>
-                        <p>Экономия {{ plan.savings }} руб.</p>
+                        <p class="caption">{{ $t("plans.perYear", { price: plan.annualPrice }) }}</p>
+                        <p>{{ $t("plans.savings", { savings: plan.savings }) }}</p>
                     </v-card-subtitle>
 
                     <v-card-text>
@@ -60,9 +60,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const targetSection = ref(null);
+const { t } = useI18n();
 
 const scrollToSection = () => {
     const section = document.getElementById("target-section");
@@ -71,65 +73,65 @@ const scrollToSection = () => {
     }
 };
 
-const hostingPlans = ref([
+const hostingPlans = computed(() => [
     {
         id: 1,
-        name: 'Shared-1000',
+        name: t("plans.shared1000"),
         price: '100',
         annualPrice: '1000',
         savings: '200',
         features: [
-            '1000 Mb места',
-            'RAM 512 Mb',
-            '5 сайтов',
-            '∞ баз данных',
-            '∞ почтовых аккаунтов',
-            'Ежедневный бэкап',
+            t("plans.features.space", { value: "1000 Mb" }),
+            t("plans.features.ram", { value: "512 Mb" }),
+            t("plans.features.sites", { value: "5" }),
+            t("plans.features.databases"),
+            t("plans.features.emails"),
+            t("plans.features.backup"),
         ],
     },
     {
         id: 2,
-        name: 'Shared-10000',
+        name: t("plans.shared10000"),
         price: '250',
         annualPrice: '2500',
         savings: '500',
         features: [
-            '10 Gb места',
-            'RAM 1536 Mb',
-            '10 сайтов',
-            '∞ баз данных',
-            '∞ почтовых аккаунтов',
-            'Ежедневный бэкап',
+            t("plans.features.space", { value: "10 Gb" }),
+            t("plans.features.ram", { value: "1536 Mb" }),
+            t("plans.features.sites", { value: "10" }),
+            t("plans.features.databases"),
+            t("plans.features.emails"),
+            t("plans.features.backup"),
         ],
     },
     {
         id: 3,
-        name: 'Shared-20000',
+        name: t("plans.shared20000"),
         price: '320',
         annualPrice: '3200',
         savings: '640',
         features: [
-            '20 Gb места',
-            'RAM 2560 Mb',
-            '15 сайтов',
-            '∞ баз данных',
-            '∞ почтовых аккаунтов',
-            'Ежедневный бэкап',
+            t("plans.features.space", { value: "20 Gb" }),
+            t("plans.features.ram", { value: "2560 Mb" }),
+            t("plans.features.sites", { value: "15" }),
+            t("plans.features.databases"),
+            t("plans.features.emails"),
+            t("plans.features.backup"),
         ],
     },
     {
         id: 4,
-        name: 'Shared-30000',
+        name: t("plans.shared30000"),
         price: '390',
         annualPrice: '3900',
         savings: '780',
         features: [
-            '30 Gb места',
-            'RAM 3072 Mb',
-            '20 сайтов',
-            '∞ баз данных',
-            '∞ почтовых аккаунтов',
-            'Ежедневный бэкап',
+            t("plans.features.space", { value: "30 Gb" }),
+            t("plans.features.ram", { value: "3072 Mb" }),
+            t("plans.features.sites", { value: "20" }),
+            t("plans.features.databases"),
+            t("plans.features.emails"),
+            t("plans.features.backup"),
         ],
     },
 ]);

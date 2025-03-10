@@ -15,8 +15,8 @@
           <v-text-field v-model="search" density="compact" variant="solo-filled" hide-details
             prepend-inner-icon="mdi-magnify" class="search-input flex-grow-1"></v-text-field>
 
-           <!-- v-menu с v-model для контроля отображения -->
-           <v-menu v-model="menuVisible">
+          <!-- v-menu с v-model для контроля отображения -->
+          <v-menu v-model="menuVisible">
             <template v-slot:activator="{ props }">
               <v-btn color="primary" class="ml-2 align-center" v-bind="props">
                 {{ $t("billing.order") }}
@@ -36,21 +36,17 @@
               <v-list-item @click="selectOption('SSL')">
                 <v-list-item-title>{{ $t("billing.ssl") }}</v-list-item-title>
               </v-list-item>
-          </v-list>
+            </v-list>
           </v-menu>
 
 
         </div>
       </v-card-title>
 
-      <v-data-table
-        :items="billings"
-        :headers="headers"
-        item-key="id"
-      >
+      <v-data-table :items="billings" :headers="headers" item-key="id">
         <template v-slot:header.status>Статус</template>
         <template v-slot:item.status="{ item }">
-          <v-chip :color="item.status === 'Open' ? 'blue' : 'green'">
+          <v-chip :color="item.status === 'Не оплачено' ? 'red' : 'green'" class="white--text">
             {{ item.status }}
           </v-chip>
         </template>
@@ -79,10 +75,10 @@ const billings = ref([]);
 function loadBilling() {
   const token = localStorage.getItem("token");
   axios.get("http://localhost:5000/billing", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
     .then(response => {
       billings.value = response.data;
     })
@@ -94,9 +90,9 @@ function loadBilling() {
 const menuVisible = ref(false); // Состояние меню
 const selectOption = (option) => {
   console.log(`Выбрана опция: ${option}`);
-  menuVisible.value = false; 
+  menuVisible.value = false;
   if (option === 'Хостинг') {
-    router.push('/hosting'); 
+    router.push('/hosting');
   }
 };
 
@@ -136,21 +132,24 @@ const translatedPriorities = computed(() =>
 </script>
 
 <style scoped>
-  .breadcrumbs {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      margin-bottom: 16px;
-  }
-  .breadcrumb {
-      color: #1565c0;
-      text-decoration: none;
-  }
-  .breadcrumb.active {
-      color: #002357;
-      font-weight: bold;
-  }
-  .separator {
-      margin: 0 8px;
-  }
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.breadcrumb {
+  color: #1565c0;
+  text-decoration: none;
+}
+
+.breadcrumb.active {
+  color: #002357;
+  font-weight: bold;
+}
+
+.separator {
+  margin: 0 8px;
+}
 </style>

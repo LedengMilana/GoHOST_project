@@ -97,7 +97,9 @@
   "breadcrumb": {
     "homep": "Home",
     "account": "Personal account",
-    "billing": "Billing"
+    "ticket": "Tickets",
+    "billing": "Billing",
+    "basket": "Cart"
   },
   "login": {
     "login": "Login",
@@ -130,7 +132,50 @@
     "description2": "Virtual hosting from Hostora, built on a stable platform and supported 24/7 by professional support, is the perfect solution for launching, growing, and scaling your website and business online.",
     "button": "Choose a plan",
     "locationTitle": "Virtual Hosting on Servers in Russia",
-        "locationDescription1": "Everything is easy and fast: choose a plan, click 'Order', complete the registration, and your hosting is ready to use. If you are unsure how to make a payment, contact us in the chat. We will help you at every step.",
-        "locationDescription2": "By default: the location of the server equipment: Novosibirsk, Mendeleeva St. 1, Data Center"
+    "locationDescription1": "Everything is easy and fast: choose a plan, click 'Order', complete the registration, and your hosting is ready to use. If you are unsure how to make a payment, contact us in the chat. We will help you at every step.",
+    "locationDescription2": "By default: the location of the server equipment: Novosibirsk, Mendeleeva St. 1, Data Center"
+  },
+  "plans": {
+    "shared1000": "Shared-1000",
+    "shared10000": "Shared-10000",
+    "shared20000": "Shared-20000",
+    "shared30000": "Shared-30000",
+    "features": {
+      "space": "{value} of storage",
+      "ram": "RAM {value}",
+      "sites": "{value} websites",
+      "databases": "∞ databases",
+      "emails": "∞ email accounts",
+      "backup": "Daily backup"
+    },
+    "currency": "RUB",
+    "perMonth": "per month",
+    "perYear": "Annually - {price} RUB",
+    "savings": "Savings {savings} RUB"
+  },
+  "order": {
+    "productService": "Product / Service",
+    "hostingPlan": "Hosting - {plan}",
+    "price": "1 month - {amount} ₽",
+    "enterDomain": "Enter domain",
+    "useOwnDomain": "Use your own domain:",
+    "enterDomainName": "Enter domain name",
+    "nameServers": "The domain must have the following name servers:",
+    "pickNewDomain": "Choose a new domain name:",
+    "check": "Check"
+  },
+  "payment": {
+    "toPay": "To Pay:",
+    "hostingPlan": "Hosting - {plan}",
+    "price": "1 month - {amount} ₽",
+    "promoCode": "Enter a promo code if you have one",
+    "apply": "Apply",
+    "onlineCard": "Online payment by card",
+    "bankTransfer": "Bank transfer (invoice payment)",
+    "total": "Total: {amount} ₽",
+    "pay": "Pay"
+  },
+  "item": {
+    "status": "not paid"
   }
 }
