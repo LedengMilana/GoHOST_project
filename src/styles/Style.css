@@ -35,7 +35,17 @@
   background-color: rgb(207, 216, 220);
   align-items: center;
   justify-content: flex-end;
-
+  gap: 10px;
+}
+.login-btn {
+  color: white !important;
+  background-color: #1565c0 !important;
+  border-radius: 25px !important;
+  font-weight: bold;
+  text-transform: none;
+}
+.header-btns {
+  color: black !important;
 }
 .custom-list .v-list,
 .v-list--density-default {

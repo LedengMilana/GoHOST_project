@@ -1,14 +1,13 @@
 <template>
   <v-container class="mt-60">
     <v-row>
-      <!-- Информация о тикете -->
       <v-col cols="12" md="4">
         <v-card class="ticket-card">
           <v-card-title>
             <v-chip :color="getStatusColor(ticket.status)" dark v-if="ticket">{{ ticket.status }}</v-chip>
           </v-card-title>
 
-          <v-list>
+          <v-list class="debug">
             <v-list-item>
               <v-list-item-content>
                 <v-list-item-subtitle v-if="ticket"><strong>{{ ticket.subject }} - {{ ticket.id
@@ -79,7 +78,7 @@
         <v-col cols="12" md="8">
           <v-card class="reply-list">
             <v-card-title>{{ $t("ticket.answers") }}</v-card-title>
-            <v-list>
+            <v-list class="debug">
               <v-list-item v-for="(reply, index) in replies" :key="index">
                 <v-list-item-content>
                   <v-row class="m-0">
@@ -98,12 +97,10 @@
                   </v-row>
                   <div class="message-text">{{ reply.comment_text }}</div>
 
-                  <div v-if="reply.attachments && reply.attachments.length">
+                  <div v-if="JSON.parse(reply.attachment).length">
                     <span>{{ $t("modal.att_file") }}:</span>
                     <ul>
-                      <li v-for="(file, index) in reply.attachments" :key="index">
-                        <a :href="file.url" target="_blank">{{ file.name }}</a>
-                      </li>
+                      <li v-for="(file, index) in JSON.parse(reply.attachment)" :key="index">{{ file.name }}</li>
                     </ul>
                   </div>
                 </v-list-item-content>
@@ -180,11 +177,10 @@ const closeTicket = () => {
 
 const submitReply = async () => {
   if (form.value.message.trim() !== "") {
-    await ticketsStore.addComment(
-      ticket.value.id, 
-      form.value.message,
-      form.value.attachments
-    );
+    const files = form.value.attachments.map(file => ({ name: file.name }));
+    
+    await ticketsStore.addComment(ticket.value.id, form.value.message, JSON.stringify(files));
+
     const updated = await ticketsStore.fetchTicketById(ticket.value.id);
     if (updated) {
       ticket.value = updated;

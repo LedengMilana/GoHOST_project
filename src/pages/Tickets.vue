@@ -1,5 +1,10 @@
 <template>
   <v-container class="table-container">
+    <div class="breadcrumbs">
+      <router-link class="breadcrumb" to="/">Главная</router-link>
+      <span class="separator">/</span>
+      <span class="breadcrumb active">Тикеты</span>
+    </div>
     <v-card class="custom-table">
       <v-card-title class="d-flex justify-space-between pa-4">
         <div class="d-flex align-center">
@@ -177,4 +182,21 @@ const editTicket = (ticket) => {
 </script>
 
 <style scoped>
+  .breadcrumbs {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 16px;
+  }
+  .breadcrumb {
+      color: #1565c0;
+      text-decoration: none;
+  }
+  .breadcrumb.active {
+      color: #002357;
+      font-weight: bold;
+  }
+  .separator {
+      margin: 0 8px;
+  }
 </style>

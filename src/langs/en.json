@@ -32,7 +32,7 @@
     "attachment": "Attachments",
     "file": "Attach files",
     "att_file": "Attached files",
-    "lang":"Language"
+    "lang": "Language"
   },
   "errors": {
     "loadTickets": "Error loading tickets"
@@ -58,15 +58,79 @@
   },
   "ticket": {
     "name": "Tickets",
+    "tickets": "TICKETS",
+    "dtickets": "Tracking support requests.",
     "answers": "Answers",
     "client": "Client"
   },
   "billing": {
     "name": "Billing",
+    "billing": "BILLING",
+    "dbilling": "Financial transactions and payments.",
     "order": "Order",
     "hosting": "Hosting",
     "domens": "Domens",
     "vps": "VPS",
     "ssl": "SSL"
+  },
+  "navbar": {
+    "account": "Personal account",
+    "projects": "Projects",
+    "allservice": "All services",
+    "hosting": "Hosting",
+    "review": "Review",
+    "lPlesk": "Login to Plesk",
+    "orderServ": "Order a service",
+    "domains": "Domains",
+    "ssl": "SSL certificates",
+    "cloudserver": "Cloud servers",
+    "management": "Management",
+    "emplteams": "Employees/Teams",
+    "roles": "Roles",
+    "profile": "My profile"
+  },
+  "header": {
+    "services": "Services",
+    "offers": "Promotions and offers",
+    "logreg": "Log in/ Sign up"
+  },
+  "breadcrumb": {
+    "homep": "Home",
+    "account": "Personal account",
+    "billing": "Billing"
+  },
+  "login": {
+    "login": "Login",
+    "log": "Login",
+    "signup": "Sign up",
+    "tologin": "Log in",
+    "tosignup": "Sign up",
+    "password": "Password",
+    "repeatpassw": "Repeat password"
+  },
+  "cards": {
+    "services": "SERVICES",
+    "dservices": "Overview of all products and services.",
+    "cloudserver": "CLOUD SERVERS",
+    "dcloudserver": "Flexible virtual machines.",
+    "domains": "DOMAINS",
+    "ddomains": "Your unique addresses.",
+    "billing": "BILLING",
+    "dbilling": "Financial transactions and payments.",
+    "tickets": "TICKETS",
+    "dtickets": "Tracking support requests.",
+    "balance": "BALANCE",
+    "dbalance": "Remaining: 0.0 RUB.",
+    "ddns": "Manage your DNS records.",
+    "replenish": "Top up"
+  },
+  "hosting": {
+    "title": "What is Virtual Hosting?",
+    "description1": "Virtual hosting is a great start to get online.",
+    "description2": "Virtual hosting from Hostora, built on a stable platform and supported 24/7 by professional support, is the perfect solution for launching, growing, and scaling your website and business online.",
+    "button": "Choose a plan",
+    "locationTitle": "Virtual Hosting on Servers in Russia",
+        "locationDescription1": "Everything is easy and fast: choose a plan, click 'Order', complete the registration, and your hosting is ready to use. If you are unsure how to make a payment, contact us in the chat. We will help you at every step.",
+        "locationDescription2": "By default: the location of the server equipment: Novosibirsk, Mendeleeva St. 1, Data Center"
   }
 }

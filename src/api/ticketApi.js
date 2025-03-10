@@ -1,10 +1,19 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000"; 
+const API_URL = "http://localhost:5000";
+
+function getToken() {
+  return localStorage.getItem("token");
+}
+
 
 export const fetchTickets = async () => {
   try {
-    const response = await axios.get(`${API_URL}/tickets`);
+    const response = await axios.get(`${API_URL}/tickets`, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    });
     return response.data;
   } catch (error) {
     console.error("Ошибка при загрузке тикетов:", error);
@@ -14,7 +23,11 @@ export const fetchTickets = async () => {
 
 export const createTicket = async (ticketData) => {
   try {
-    const response = await axios.post(`${API_URL}/tickets`, ticketData);
+    const response = await axios.post(`${API_URL}/tickets`, ticketData, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    });
     return response.data;
   } catch (error) {
     console.error("Ошибка при создании тикета:", error);
@@ -24,7 +37,11 @@ export const createTicket = async (ticketData) => {
 
 export const getTicketById = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}/tickets/${id}`);
+    const response = await axios.get(`${API_URL}/tickets/${id}`, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    });
     return response.data;
   } catch (error) {
     console.error("Ошибка при получении тикета:", error);
@@ -34,7 +51,11 @@ export const getTicketById = async (id) => {
 
 export const updateTicket = async (id, updatedData) => {
   try {
-    const response = await axios.put(`${API_URL}/tickets/${id}`, updatedData);
+    const response = await axios.put(`${API_URL}/tickets/${id}`, updatedData, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    });
     return response.data;
   } catch (error) {
     console.error("Ошибка при обновлении тикета:", error);
@@ -44,7 +65,11 @@ export const updateTicket = async (id, updatedData) => {
 
 export const deleteTicket = async (id) => {
   try {
-    const response = await axios.delete(`${API_URL}/tickets/${id}`);
+    const response = await axios.delete(`${API_URL}/tickets/${id}`, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    });
     return response.data;
   } catch (error) {
     console.error("Ошибка при удалении тикета:", error);
@@ -52,16 +77,20 @@ export const deleteTicket = async (id) => {
   }
 };
 
-
 export const fetchSingleTicket = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}/tickets/${id}`);
+    const response = await axios.get(`${API_URL}/tickets/${id}`, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`
+      }
+    });
     return response.data; 
   } catch (error) {
     console.error("Ошибка при получении тикета:", error);
     return null;
   }
 };
+
 
 
 // import axios from "axios";

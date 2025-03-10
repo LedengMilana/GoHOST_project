@@ -7,33 +7,26 @@
             </v-col>
 
             <!-- Текстовое описание -->
-            <v-col cols="12" md="7" class="align-center">
-                <h1 class="font-weight-bold">Что такое виртуальный хостинг?</h1>
-                <p class="mb-20">Виртуальный хостинг - отличный старт для начала работы в Интернете.</p>
-                <p class="mb-20">Виртуальный хостинг от Hostora, основанный на устойчивой платформе и сопровождаемый
-                    24/7
-                    профессиональной поддержкой, станет идеальным решением для запуска, развития и масштабирования
-                    вашего веб-сайта и бизнеса в Интернете.</p>
-                <v-btn class="text-button" append-icon="mdi-arrow-down" variant="text">
-                    Выберите план
+            <v-col cols="12" md="7">
+                <h1 class="font-weight-bold">{{ $t("hosting.title") }}</h1>
+                <p class="mb-20">{{ $t("hosting.description1") }}</p>
+                <p class="mb-20">{{ $t("hosting.description2") }}</p>
+                <v-btn class="text-button mt-4 mx-auto d-block" variant="text" @click="scrollToSection">
+                    {{ $t("hosting.button") }}
                 </v-btn>
             </v-col>
         </v-row>
 
         <v-row class="d-flex justify-center mb-4">
-            <v-col cols="12">
-                <h1 class="font-weight-bold text-center">Виртуальный хостинг на серверах в России</h1>
-                <p class="caption">Всё легко и быстро: выберите тариф, кликните "Заказать", завершите регистрацию, и ваш
-                    хостинг уже
-                    готов к использованию. Если не знаете, как произвести оплату, обратитесь к нам в чат. Мы поможем вам
-                    на каждом шаге.</p>
-                <p class="caption">По умолчанию: месторасположение серверного оборудования: г. Новосибирск, ул.
-                    Менделеева 1, ЦОД</p>
+            <v-col cols="12" ref="targetSection">
+                <h1 class="font-weight-bold text-center">{{ $t("hosting.locationTitle") }}</h1>
+                <p class="caption">{{ $t("hosting.locationDescription1") }}</p>
+                <p class="caption">{{ $t("hosting.locationDescription2") }}</p>
             </v-col>
         </v-row>
         <!-- Карточки с тарифами -->
         <v-row class="d-flex justify-center">
-            <v-col cols="12" md="3" v-for="plan in hostingPlans" :key="plan.id">
+            <v-col id="target-section" cols="12" md="3" v-for="plan in hostingPlans" :key="plan.id">
                 <v-card :class="getCardClass(plan.id)" hover>
                     <v-card-item class="d-flex justify-center align-center">
                         <v-icon class="mr-2" size="32">mdi-cloud</v-icon>
@@ -53,16 +46,12 @@
                     <v-card-text>
                         <!-- Описание тарифа -->
                         <div class="text-center">
-                            <p>{{ plan.features[0] }}</p>
-                            <p>{{ plan.features[1] }}</p>
-                            <p>{{ plan.features[2] }}</p>
-                            <p>{{ plan.features[3] }}</p>
-                            <p>{{ plan.features[4] }}</p>
-                            <p>{{ plan.features[5] }}</p>
+                            <p v-for="(feature, index) in plan.features" :key="index">{{ feature }}</p>
                         </div>
                     </v-card-text>
                     <v-card-actions class="justify-center">
-                        <v-btn color="primary" @click="orderPlan(plan.id)">{{ $t("billing.order") }}</v-btn>
+                        <v-btn color="primary" @click="orderPlan(plan.id)"><router-link class="link-to"
+                                :to="`/basket/${plan.price}`">{{ $t("billing.order") }}</router-link></v-btn>
                     </v-card-actions>
                 </v-card>
             </v-col>
@@ -72,6 +61,15 @@
 
 <script setup>
 import { ref } from 'vue';
+
+const targetSection = ref(null);
+
+const scrollToSection = () => {
+    const section = document.getElementById("target-section");
+    if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+};
 
 const hostingPlans = ref([
     {
@@ -194,7 +192,7 @@ p {
 }
 
 .caption {
-    font-size: 12px;
+    font-size: 16px;
     color: #333;
     margin-bottom: 8px;
 }
@@ -203,7 +201,16 @@ p {
     color: #1565c0;
     text-align: center;
 }
+
 .blue-border {
     border: 1px solid #1565c0;
+}
+
+.link-to {
+    text-decoration: none;
+    color: #1565c0;
+}
+[targetSection] {
+    scroll-margin-top: 80px;
 }
 </style>

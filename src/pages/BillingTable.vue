@@ -1,5 +1,10 @@
 <template>
   <v-container class="table-container">
+    <div class="breadcrumbs">
+      <router-link class="breadcrumb" to="/">{{ $t("breadcrumb.homep") }}</router-link>
+      <span class="separator">/</span>
+      <span class="breadcrumb active">{{ $t("breadcrumb.billing") }}</span>
+    </div>
     <v-card class="custom-table">
       <v-card-title class="d-flex justify-space-between pa-4">
         <div class="d-flex align-center">
@@ -38,18 +43,16 @@
         </div>
       </v-card-title>
 
-      <!-- Таблица -->
-      <v-data-table v-model:sort-by="sortBy" :headers="headers" :items="ticketsStore.tickets" :search="search"
-        class="elevation-1" density="comfortable" item-key="id" :items-per-page="5">
+      <v-data-table
+        :items="billings"
+        :headers="headers"
+        item-key="id"
+      >
+        <template v-slot:header.status>Статус</template>
         <template v-slot:item.status="{ item }">
-          <v-chip :color="getStatusColor(item.status)" dark rounded="sm">
+          <v-chip :color="item.status === 'Open' ? 'blue' : 'green'">
             {{ item.status }}
           </v-chip>
-        </template>
-        <template v-slot:item.actions="{ item }">
-          <v-btn icon @click="editTicket(item)">
-            <v-icon size="24" class="m-edit">mdi-pencil</v-icon>
-          </v-btn>
         </template>
       </v-data-table>
     </v-card>
@@ -62,7 +65,7 @@ import { useTicketsStore } from "../stores/ticketStore";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
-
+import axios from "axios"
 
 
 const { t } = useI18n();
@@ -71,6 +74,22 @@ const dialog = ref(false);
 const router = useRouter();
 const search = ref("");
 const sortBy = ref([{ key: "id", order: "asc" }]);
+const billings = ref([]);
+
+function loadBilling() {
+  const token = localStorage.getItem("token");
+  axios.get("http://localhost:5000/billing", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+    .then(response => {
+      billings.value = response.data;
+    })
+    .catch(err => {
+      console.error("Ошибка при загрузке billing:", err);
+    });
+}
 
 const menuVisible = ref(false); // Состояние меню
 const selectOption = (option) => {
@@ -84,6 +103,7 @@ const selectOption = (option) => {
 
 onMounted(() => {
   ticketsStore.loadTickets();
+  loadBilling()
 });
 
 const headers = computed(() => [
@@ -91,7 +111,7 @@ const headers = computed(() => [
   { title: t("table.status"), key: "status", sortable: true },
   { title: t("table.maturitydate"), key: "maturitydate", sortable: true },
   { title: t("table.invoicedate"), key: "invoicedate", sortable: true },
-  { title: t("table.payment"), key: "payment", sortable: true }
+  { title: t("table.payment"), key: "amount", sortable: true }
 ]);
 
 const getStatusColor = (status) => {
@@ -115,4 +135,22 @@ const translatedPriorities = computed(() =>
 
 </script>
 
-<style scoped></style>
+<style scoped>
+  .breadcrumbs {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 16px;
+  }
+  .breadcrumb {
+      color: #1565c0;
+      text-decoration: none;
+  }
+  .breadcrumb.active {
+      color: #002357;
+      font-weight: bold;
+  }
+  .separator {
+      margin: 0 8px;
+  }
+</style>
