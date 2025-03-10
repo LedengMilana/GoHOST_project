@@ -113,10 +113,10 @@ onMounted(async () => {
         Authorization: `Bearer ${storedToken}`
       }
     });
-    const billingCard = cards.value.find((c) => c.title === "БИЛЛИНГ");
+    const billingCard = rawCards.value.find(c => c.key === "billing");
     if (billingCard) {
       billingCard.count = billingResp.data.length;
-      billingCard.count2 = 0;
+      billingCard.count2 = 0; 
     }
 
     const ticketsResp = await axios.get("http://localhost:5000/tickets", {
@@ -127,7 +127,7 @@ onMounted(async () => {
     let openCount = 0;
     let closedCount = 0;
 
-    ticketsResp.data.forEach((ticket) => {
+    ticketsResp.data.forEach(ticket => {
       if (ticket.status === "Open" || ticket.status === "Активный") {
         openCount++;
       } else if (ticket.status === "Closed") {
@@ -135,7 +135,7 @@ onMounted(async () => {
       }
     });
 
-    const ticketsCard = cards.value.find((c) => c.title === "ТИКЕТЫ");
+    const ticketsCard = rawCards.value.find(c => c.key === "tickets");
     if (ticketsCard) {
       ticketsCard.count = openCount;
       ticketsCard.count2 = closedCount;
